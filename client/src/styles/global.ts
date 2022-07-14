@@ -1,23 +1,54 @@
 import { createGlobalStyle } from 'styled-components'
+import { ThemeType } from '../@types/styled'
 
-export const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle<{theme:ThemeType}>`
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  :focus {
-    outline: 0;
-    box-shadow: 0 0 0 2px ${({ theme }) => theme.background};
+    font-family: 'Inter', sans-serif;
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 5px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: ${({ theme }) => theme["primary"]};
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-track{
+      background: ${({ theme }) => theme["primary"]};
+    }
   }
   body {
-    background: ${({ theme }) => theme.background};
-    color: ${({ theme }) => theme.primary};
-    -webkit-font-smoothing: antialiased;
+    background: ${({theme}) => theme["background"]};
+    font: 400 1rem 'Inter', sans-serif;
   }
-  body, input, textarea, button {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    font-size: 1rem;
+  img {
+    width: 100%;
+    max-width: 100%;
+  }
+  ul {
+    list-style: none;
+  }
+  button {
+    cursor: pointer;
+  }
+  a {
+    text-decoration: none;
+  }
+  .container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 85rem;
+    padding: 0 1rem;
+    @media(max-width:1450px) {
+      max-width: 70rem;
+    }
+    @media(max-width:1000px) {
+      max-width: 50rem;
+    }
+    @media(max-width:700px) {
+      padding: 0 2rem;
+    }
   }
 `

@@ -1,4 +1,3 @@
-import 'styled-components'
 import themes from '../styles/themes/default'
 
 type ThemeType = typeof themes

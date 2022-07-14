@@ -1,8 +1,10 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 
+type Theme = 'light' | 'dark';
+
 type ThemeContextType = {
-  currentTheme: string;
-  setCurrentTheme: (currentTheme: string) => void;
+  currentTheme: Theme;
+  setCurrentTheme: (currentTheme: Theme) => void;
 }
 
 type ThemeContextProviderProps = {
@@ -12,7 +14,7 @@ type ThemeContextProviderProps = {
 export const ThemeContext = createContext({} as ThemeContextType);
 
 export function ThemeContextProvider({ children }: ThemeContextProviderProps) {
-const [currentTheme, setCurrentTheme] = useState(localStorage.getItem("theme") !== "dark" ? "light" : "dark");
+const [currentTheme, setCurrentTheme] = useState<Theme>(localStorage.getItem("theme") !== "dark" ? "light" : "dark");
 
 useEffect(() => {
   const root = window.document.documentElement;

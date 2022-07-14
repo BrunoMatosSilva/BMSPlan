@@ -11,7 +11,7 @@ export function Header(){
 
   return(
     <div>
-    <h1>Header</h1>
+    <h1>Bms Plan</h1>
     <button onClick={() => setCurrentTheme(getOppositeTheme())}>Mudar Tema do Layout</button>
     </div>
   )
