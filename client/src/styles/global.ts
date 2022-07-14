@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import { ThemeType } from '../@types/styled'
 
-export const GlobalStyle = createGlobalStyle<{theme:ThemeType}>`
+export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
   * {
     margin: 0;
     padding: 0;
@@ -12,15 +12,15 @@ export const GlobalStyle = createGlobalStyle<{theme:ThemeType}>`
       height: 5px;
     }
     ::-webkit-scrollbar-thumb {
-      background: ${({ theme }) => theme["primary"]};
+      background: ${({ theme }) => theme.primary};
       border-radius: 10px;
     }
     ::-webkit-scrollbar-track{
-      background: ${({ theme }) => theme["primary"]};
+      background: ${({ theme }) => theme.primary};
     }
   }
   body {
-    background: ${({theme}) => theme["background"]};
+    background: ${({ theme }) => theme.background};
     font: 400 1rem 'Inter', sans-serif;
   }
   img {

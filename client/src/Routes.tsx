@@ -5,14 +5,13 @@ import { Members } from './pages/Members'
 import { Settings } from './pages/Settings'
 
 export function Router() {
-
   return (
     <Routes>
       <Route path="/" element={<DefaultLayout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/members" element={<Members/>} />
-        <Route path="/settings" element={<Settings/>} />
+        <Route path="/members" element={<Members />} />
+        <Route path="/settings" element={<Settings />} />
       </Route>
     </Routes>
-  );
+  )
 }

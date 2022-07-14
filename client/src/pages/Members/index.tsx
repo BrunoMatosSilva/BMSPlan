@@ -1,5 +1,3 @@
-export function Members(){
-  return(
-    <h1>Members</h1>
-  )
+export function Members() {
+  return <h1>Members</h1>
 }

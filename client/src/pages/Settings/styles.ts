@@ -1,5 +1,3 @@
 import styled from 'styled-components'
 
-export const SettingContainer = styled.div`
-  
-`
+export const SettingContainer = styled.div``

@@ -1,5 +1,3 @@
-export function Settings(){
-  return(
-    <h1>Settings</h1>
-  )
+export function Settings() {
+  return <h1>Settings</h1>
 }
