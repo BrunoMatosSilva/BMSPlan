@@ -5,7 +5,7 @@ export const LayoutContainer = styled.div`
   height: calc(100vh - 10rem);
   margin: 5rem auto;
   padding: 2.5rem;
-  background: ${({ theme }) => theme['gray-800']};
+  background: ${({ theme }) => theme.background};
   border-radius: 8px;
   display: flex;
   flex-direction: column;
