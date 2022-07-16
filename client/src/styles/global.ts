@@ -21,6 +21,7 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
   }
   body {
     background: ${({ theme }) => theme.background};
+    color: ${({ theme }) => theme.primary};
     font: 400 1rem 'Inter', sans-serif;
   }
   img {

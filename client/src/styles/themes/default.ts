@@ -13,7 +13,7 @@ const lightTheme = {
 
 const darkTheme = {
   primary: '#E0E0E0',
-  secondery: '#2F2E2E',
+  secondery: '#DBDBDB',
   border: '#4F4F4F',
   icon: '#2F80ED',
   background: '#333333',
