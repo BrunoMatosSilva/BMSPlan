@@ -40,45 +40,53 @@ export const LogoWrapper = styled.div`
 export const InputWrapper = styled.div`
   display: flex;
   padding-right: 50rem;
+  padding-left: 1rem;
   flex-direction: column;
   gap: 0.5rem;
   width: 100%;
 `
 
 export const InputContainer = styled.div`
-  background-color: ${({ theme }) => theme.backgroundCard};
-  border: none;
-  padding: 0.3rem 0.8rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  background-color: ${({ theme }) => theme.backgroundCard};
+  border: none;
   border-radius: 0.3rem;
-  gap: 0.8rem;
-  transition: 0.4s;
 
-  button {
-    background: transparent;
-    border: none;
-    svg {
-      width: 1.2rem;
-      height: 1.2rem;
-      transition: 0.4s;
-      color: ${({ theme }) => theme.primary};
+  form {
+    display: flex;
+    align-items: center;
+    padding: 0.3rem 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    transition: 0.4s;
+
+    button {
+      background: transparent;
+      border: none;
+      svg {
+        width: 1.2rem;
+        height: 1.2rem;
+        transition: 0.4s;
+        color: ${({ theme }) => theme.primary};
+      }
     }
-  }
-  input {
-    flex: 1;
-    background: none;
-    border: none;
-    color: ${({ theme }) => theme.primary};
-    input:-internal-autofill-selected {
+    input {
+      flex: 1;
       background: none;
-    }
-    &::placeholder {
+      border: none;
       color: ${({ theme }) => theme.primary};
-    }
-    &:focus {
-      outline: none;
+      input:-internal-autofill-selected {
+        background: none;
+      }
+      &::placeholder {
+        color: ${({ theme }) => theme.primary};
+      }
+      &:focus {
+        outline: none;
+      }
     }
   }
 `
@@ -96,6 +104,10 @@ export const PerfilWrapper = styled.div`
     border: none;
     background: transparent;
     color: ${({ theme }) => theme.primary};
+
+    &:hover {
+      color: ${({ theme }) => theme.icon};
+    }
   }
 
   section {

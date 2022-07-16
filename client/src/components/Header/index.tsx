@@ -33,10 +33,12 @@ export function Header() {
       <div>
         <InputWrapper>
           <InputContainer>
-            <button>
-              <MagnifyingGlass />
-            </button>
-            <input id="search" placeholder="procure alguma coisa..." />
+            <form>
+              <button>
+                <MagnifyingGlass />
+              </button>
+              <input id="search" placeholder="procure alguma coisa..." />
+            </form>
           </InputContainer>
         </InputWrapper>
       </div>
