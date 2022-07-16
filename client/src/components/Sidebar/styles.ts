@@ -16,17 +16,23 @@ export const SidebarContainer = styled.aside`
 
     li {
       display: flex;
+      flex: 1;
       align-items: center;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 1s color;
 
-      svg {
-        margin-right: 1rem;
-      }
+      a {
+        display: flex;
+        align-items: center;
+        font-size: 1rem;
+        color: ${({ theme }) => theme.primary};
+        cursor: pointer;
+        transition: 1s color;
+        svg {
+          margin-right: 1rem;
+        }
 
-      &:hover {
-        color: ${({ theme }) => theme.icon};
+        &:hover {
+          color: ${({ theme }) => theme.icon};
+        }
       }
     }
   }
@@ -77,7 +83,7 @@ export const ProjetosWrapper = styled.div`
       padding-left: 0.5rem;
       padding-right: 0.25rem;
       padding-bottom: 0.25rem;
-      cursor: grab;
+      cursor: pointer;
       color: ${({ theme }) => theme.primary};
       background: none;
       font-size: 1rem;

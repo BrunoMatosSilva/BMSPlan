@@ -23,8 +23,10 @@ export function Header() {
     <HeaderContainer>
       <LogoWrapper>
         <section>
-          <img src={ImgLogo} alt="" />
-          <h2>Bms Plan</h2>
+          <a href="#">
+            <img src={ImgLogo} alt="" />
+            <h2>Bms Plan</h2>
+          </a>
         </section>
         <CaretDoubleLeft size={18} />
       </LogoWrapper>
@@ -42,17 +44,25 @@ export function Header() {
         <section>
           {currentTheme === 'light' ? (
             <div>
-              <Moon size={20} onClick={() => setCurrentTheme('dark')} />
+              <button>
+                <Moon size={20} onClick={() => setCurrentTheme('dark')} />
+              </button>
             </div>
           ) : (
             <div>
-              <Sun size={20} onClick={() => setCurrentTheme('light')} />
+              <button>
+                <Sun size={20} onClick={() => setCurrentTheme('light')} />
+              </button>
             </div>
           )}
-          <Bell size={20} />
+          <button>
+            <Bell size={20} />
+          </button>
         </section>
         <span>Bruno Matos</span>
-        <CaretDown size={20} />
+        <button>
+          <CaretDown size={20} />
+        </button>
       </PerfilWrapper>
     </HeaderContainer>
   )

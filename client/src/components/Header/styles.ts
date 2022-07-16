@@ -19,12 +19,17 @@ export const LogoWrapper = styled.div`
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    > img {
-      height: 1.5rem;
-      width: 1.5rem;
-    }
-    h2 {
-      color: ${({ theme }) => theme.secondery};
+    a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      > img {
+        height: 1.5rem;
+        width: 1.5rem;
+      }
+      h2 {
+        color: ${({ theme }) => theme.secondery};
+      }
     }
   }
   svg {
@@ -87,10 +92,22 @@ export const PerfilWrapper = styled.div`
     cursor: pointer;
   }
 
+  > button {
+    border: none;
+    background: transparent;
+    color: ${({ theme }) => theme.primary};
+  }
+
   section {
     display: flex;
     margin-right: 2rem;
     gap: 1.2rem;
+
+    button {
+      border: none;
+      background: transparent;
+      color: ${({ theme }) => theme.primary};
+    }
 
     svg {
       cursor: pointer;

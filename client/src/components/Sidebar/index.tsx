@@ -10,16 +10,22 @@ export function Sidebar() {
     <SidebarContainer>
       <ul>
         <li>
-          <SquaresFour size={20} />
-          Home
+          <a href="#">
+            <SquaresFour size={20} />
+            Home
+          </a>
         </li>
         <li>
-          <Users size={20} />
-          Membros
+          <a href="#">
+            <Users size={20} />
+            Membros
+          </a>
         </li>
         <li>
-          <GearSix size={20} />
-          Configuração
+          <a href="#">
+            <GearSix size={20} />
+            Configuração
+          </a>
         </li>
       </ul>
 
