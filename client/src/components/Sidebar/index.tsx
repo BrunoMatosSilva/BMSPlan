@@ -1,4 +1,4 @@
-import { GearSix, PlusCircle, SquaresFour, Users } from 'phosphor-react'
+import { ChatCentered, PlusCircle, SquaresFour, Users } from 'phosphor-react'
 import {
   SidebarContainer,
   ProjetosTitleContainer,
@@ -23,8 +23,8 @@ export function Sidebar() {
         </li>
         <li>
           <a href="#">
-            <GearSix size={20} />
-            Configuração
+            <ChatCentered size={20} />
+            Mensagens
           </a>
         </li>
       </ul>

@@ -3,7 +3,7 @@ import { DefaultLayout } from './layouts/DefaultLayout'
 import { Home } from './pages/Home'
 import { Login } from './pages/Login'
 import { Members } from './pages/Members'
-import { Settings } from './pages/Settings'
+import { Messeges } from './pages/Messeges'
 import { Signup } from './pages/Signup'
 
 export function Router() {
@@ -14,7 +14,7 @@ export function Router() {
       <Route path="/" element={<DefaultLayout />}>
         <Route path="/home" element={<Home />} />
         <Route path="/members" element={<Members />} />
-        <Route path="/settings" element={<Settings />} />
+        <Route path="/messeges" element={<Messeges />} />
       </Route>
     </Routes>
   )
