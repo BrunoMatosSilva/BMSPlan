@@ -7,18 +7,18 @@ const User = require('../models/user')
 
 router.post('/signup',
 body('username').isLength({ min: 8 }).withMessage(
-  'username must be at least 8 characters long'
+  'o usuário deve ter pelo menos 8 caracteres'
 ),
 body('password').isLength({ min: 8 }).withMessage(
-  'password must be at least 8 characters long'
+  'a senha deve ter pelo menos 8 caracteres'
 ),
 body('confirmPassword').isLength({ min: 8 }).withMessage(
-  'confirmPassword must be at least 8 characters long'
+  'a confirmação de senha deve ter pelo menos 8 caracteres'
 ),
  body('username').custom(value => {
   return User.findOne({username: value}).then(user => {
     if (user){
-      return Promise.reject('username already used')
+      return Promise.reject('esse usuario já existe!')
     }
   })
 }),
@@ -28,10 +28,10 @@ userController.register
 
 router.post('/login',
 body('username').isLength({ min: 8 }).withMessage(
-  'username must be at least 8 characters long'
+  'o usuário deve ter pelo menos 8 caracteres'
 ),
 body('password').isLength({ min: 8 }).withMessage(
-  'password must be at least 8 characters long'
+  'a senha deve ter pelo menos 8 caracteres'
 ),
 validation.validate,
 userController.login
