@@ -112,6 +112,36 @@ export const SignupWrapper = styled.section`
   }
 `
 
+export const LoginLink = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  p {
+    font: 1rem;
+    color: ${({ theme }) => theme.backgroundCard};
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 3rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: ${({ theme }) => theme.background};
+    background: ${({ theme }) => theme.icon};
+    transition: 0.5s all;
+
+    &:hover {
+      background: ${({ theme }) => theme.textPriorityHight};
+    }
+  }
+`
+
 export const BannerContainer = styled.div`
   display: flex;
   align-items: center;

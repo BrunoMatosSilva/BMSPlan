@@ -1,5 +1,6 @@
 import {
   BannerContainer,
+  LoginLink,
   LogoContainer,
   LogoWrapper,
   SignupContainer,
@@ -47,6 +48,11 @@ export function Signup() {
                 </div>
                 <button type="submit">Cadastrar conta</button>
               </form>
+
+              <LoginLink>
+                <p>Já possui uma conta?</p>
+                <a href="/">Para Logar clique aqui</a>
+              </LoginLink>
             </section>
           </SignupWrapper>
         </div>
