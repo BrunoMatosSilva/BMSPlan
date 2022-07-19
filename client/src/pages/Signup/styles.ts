@@ -5,13 +5,7 @@ export const SignupContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: rgb(242, 242, 242);
-  background: linear-gradient(
-    180deg,
-    rgba(242, 242, 242, 1) 0%,
-    rgba(219, 219, 219, 1) 48%,
-    rgba(51, 51, 51, 1) 100%
-  );
+  background: ${({ theme }) => theme.babackgroundCard};
 `
 
 export const SignupHeader = styled.section`
@@ -57,7 +51,7 @@ export const LogoWrapper = styled.section`
 `
 
 export const SignupWrapper = styled.section`
-  background-color: ${({ theme }) => theme.secondery};
+  background-color: ${({ theme }) => theme.backgroundLogin};
   border: 1px solid ${({ theme }) => theme.icon};
   box-shadow: 5px 5px 17px -5px ${({ theme }) => theme.secondery};
   border-radius: 10px;
@@ -69,7 +63,7 @@ export const SignupWrapper = styled.section`
     gap: 1rem;
 
     h2 {
-      color: ${({ theme }) => theme.backgroundCard};
+      color: ${({ theme }) => theme.primary};
     }
 
     > form {
@@ -96,11 +90,12 @@ export const SignupWrapper = styled.section`
       }
       button {
         height: 3rem;
+        border: none;
         border-radius: 5px;
         font-size: 1rem;
         font-weight: bold;
         text-transform: uppercase;
-        color: ${({ theme }) => theme.border};
+        color: ${({ theme }) => theme.primary};
         background: ${({ theme }) => theme.textPriorityMedium};
         transition: 0.8s all;
 
@@ -119,7 +114,7 @@ export const LoginLink = styled.div`
 
   p {
     font: 1rem;
-    color: ${({ theme }) => theme.backgroundCard};
+    color: ${({ theme }) => theme.primary};
   }
 
   a {
@@ -132,7 +127,7 @@ export const LoginLink = styled.div`
     font-size: 1rem;
     font-weight: bold;
     text-transform: uppercase;
-    color: ${({ theme }) => theme.background};
+    color: ${({ theme }) => theme.primary};
     background: ${({ theme }) => theme.icon};
     transition: 0.5s all;
 

@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
       height: 5px;
     }
     ::-webkit-scrollbar-thumb {
-      background: ${({ theme }) => theme.primary};
+      background: ${({ theme }) => theme.icon};
       border-radius: 10px;
     }
     ::-webkit-scrollbar-track{

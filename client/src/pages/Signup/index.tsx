@@ -51,7 +51,7 @@ export function Signup() {
 
               <LoginLink>
                 <p>Já possui uma conta?</p>
-                <a href="/">Para Logar clique aqui</a>
+                <a href="/login">Para Logar clique aqui</a>
               </LoginLink>
             </section>
           </SignupWrapper>
