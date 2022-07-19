@@ -1,7 +1,6 @@
 import {
   BannerContainer,
   LoginLink,
-  LogoContainer,
   LogoWrapper,
   SignupContainer,
   SignupHeader,
@@ -9,29 +8,46 @@ import {
 } from './styles'
 import ImgLogo from '../../assets/logo.png'
 import ImgBanner from '../../assets/banner.png'
+import { useTheme } from '../../hooks/useTheme'
+import { Moon, Sun } from 'phosphor-react'
 
 export function Signup() {
+  const { currentTheme, setCurrentTheme } = useTheme()
+
   return (
     <SignupContainer>
       <SignupHeader>
-        <LogoContainer>
-          <LogoWrapper>
-            <header>
+        <LogoWrapper>
+          <header>
+            <div>
               <img src={ImgLogo} alt="" />
               <h2>Bms Plan</h2>
-            </header>
-            <div>
-              <h3>
-                Gerencie seus projetos e tarefas de uma forma{' '}
-                <span>intuitiva</span> e <span>agradável</span>.
-              </h3>
-              <p>
-                Utilizando a metodologia Kanban, cartões personalizados para
-                facilitar a sua organização visual de tarefas e projetos.
-              </p>
             </div>
-          </LogoWrapper>
-        </LogoContainer>
+            {currentTheme === 'light' ? (
+              <div>
+                <button>
+                  <Moon size={20} onClick={() => setCurrentTheme('dark')} />
+                </button>
+              </div>
+            ) : (
+              <div>
+                <button>
+                  <Sun size={20} onClick={() => setCurrentTheme('light')} />
+                </button>
+              </div>
+            )}
+          </header>
+          <div>
+            <h3>
+              Gerencie seus projetos e tarefas de uma forma{' '}
+              <span>intuitiva</span> e <span>agradável</span>.
+            </h3>
+            <p>
+              Utilizando a metodologia Kanban, cartões personalizados para
+              facilitar a sua organização visual de tarefas e projetos.
+            </p>
+          </div>
+        </LogoWrapper>
         <div>
           <SignupWrapper>
             <section>

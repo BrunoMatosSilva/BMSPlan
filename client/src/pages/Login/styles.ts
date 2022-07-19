@@ -15,8 +15,6 @@ export const LoginHeader = styled.section`
   margin-top: 6rem;
 `
 
-export const LogoContainer = styled.div``
-
 export const LogoWrapper = styled.section`
   max-width: 650px;
   display: flex;
@@ -24,12 +22,27 @@ export const LogoWrapper = styled.section`
   > header {
     display: flex;
     align-items: center;
-    > img {
-      height: 1.5rem;
-      width: 1.5rem;
-    }
-    h2 {
-      color: ${({ theme }) => theme.secondery};
+    justify-content: space-between;
+    > div {
+      display: flex;
+      align-items: center;
+
+      > button {
+        border: none;
+        background: transparent;
+        color: ${({ theme }) => theme.primary};
+
+        &:hover {
+          color: ${({ theme }) => theme.icon};
+        }
+      }
+      > img {
+        height: 1.5rem;
+        width: 1.5rem;
+      }
+      h2 {
+        color: ${({ theme }) => theme.secondery};
+      }
     }
   }
   > div {
