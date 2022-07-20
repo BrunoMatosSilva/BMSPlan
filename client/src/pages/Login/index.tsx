@@ -10,9 +10,14 @@ import ImgLogo from '../../assets/logo.png'
 import ImgBanner from '../../assets/banner.png'
 import { useTheme } from '../../hooks/useTheme'
 import { Moon, Sun } from 'phosphor-react'
+import { Link } from 'react-router-dom'
+import { useForm } from 'react-hook-form'
 
 export function Login() {
   const { currentTheme, setCurrentTheme } = useTheme()
+  const { register, handleSubmit } = useForm()
+
+  function onSubmit() {}
 
   return (
     <LoginContainer>
@@ -52,19 +57,31 @@ export function Login() {
           <LoginWrapper>
             <section>
               <h2>Acesse gratuitamente</h2>
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
-                  <input type="text" placeholder="Digite seu Usuario" />
+                  <input
+                    name="username"
+                    id="username"
+                    type="text"
+                    placeholder="Digite seu Usuario"
+                    required
+                  />
                 </div>
                 <div>
-                  <input type="password" placeholder="Digite sua Senha" />
+                  <input
+                    name="password"
+                    id="password"
+                    type="password"
+                    placeholder="Digite sua Senha"
+                    required
+                  />
                 </div>
                 <button type="submit">Acessar o Sistema</button>
               </form>
 
               <SignupLink>
                 <p>Não possui Cadastro?</p>
-                <a href="/signup">Crie Aqui!</a>
+                <Link to="/signup">Crie Aqui!</Link>
               </SignupLink>
             </section>
           </LoginWrapper>
