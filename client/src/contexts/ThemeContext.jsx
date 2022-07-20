@@ -1,20 +1,9 @@
 import { createContext, ReactNode, useEffect, useState } from 'react'
 
-type Theme = 'light' | 'dark'
+export const ThemeContext = createContext({})
 
-type ThemeContextType = {
-  currentTheme: Theme
-  setCurrentTheme: (currentTheme: Theme) => void
-}
-
-type ThemeContextProviderProps = {
-  children: ReactNode
-}
-
-export const ThemeContext = createContext({} as ThemeContextType)
-
-export function ThemeContextProvider({ children }: ThemeContextProviderProps) {
-  const [currentTheme, setCurrentTheme] = useState<Theme>(
+export function ThemeContextProvider({ children }) {
+  const [currentTheme, setCurrentTheme] = useState(
     localStorage.getItem('theme') !== 'dark' ? 'light' : 'dark',
   )
 

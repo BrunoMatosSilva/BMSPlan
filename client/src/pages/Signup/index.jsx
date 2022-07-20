@@ -38,7 +38,7 @@ export function Signup() {
   })
 
  async function onSubmit(data) {
-  const user = new 
+
     const username = data.username
     const password = data.password
     const confirmPassword = data.confirmPassword
