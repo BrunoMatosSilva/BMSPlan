@@ -14,7 +14,6 @@ import ImgBanner from '../../assets/banner.png'
 import { useTheme } from '../../hooks/useTheme'
 import { Moon, Sun } from 'phosphor-react'
 import { Link, useNavigate } from 'react-router-dom'
-import authApi from '../../api/authApi'
 
 const schema = yup
   .object({
@@ -43,13 +42,6 @@ export function Signup() {
     const password = data.password
     const confirmPassword = data.confirmPassword
     console.log(username, password, confirmPassword)
-
-    const res = await authApi.signup({
-      username, password, confirmPassword
-    })
-    setLoading(false)
-    localStorage.setItem('token', res.token)
-
     
     navigate('/login')
   }
