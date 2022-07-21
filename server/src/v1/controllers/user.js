@@ -23,14 +23,14 @@ exports.register = async (req, res) => {
 }
 
 exports.login = async (req, res) => {
-  const { name, password } = req.body
+  const { email, password } = req.body
   try {
-    const user = await User.findOne({ name }).select('password name')
+    const user = await User.findOne({ email }).select('password email')
     if (!user) {
       return res.status(401).json({
         errors: [
           {
-            param: 'name',
+            param: 'email',
             msg: 'Invalido email ou senha'
           }
         ]

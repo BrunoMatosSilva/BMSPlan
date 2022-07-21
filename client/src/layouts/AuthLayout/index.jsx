@@ -13,7 +13,7 @@ export function AuthLayout() {
       if (!isAuth) {
         setLoading(false)
       } else {
-        navigate('/login')
+        navigate('/')
       }
     }
     checkAuth()

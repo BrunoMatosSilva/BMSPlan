@@ -6,18 +6,53 @@ import {
   LogoWrapper,
   SignupLink,
 } from './styles'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
 import ImgLogo from '../../assets/logo.png'
 import ImgBanner from '../../assets/banner.png'
 import { useTheme } from '../../hooks/useTheme'
 import { Moon, Sun } from 'phosphor-react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 
-export function Login() {
-  const { currentTheme, setCurrentTheme } = useTheme()
-  const { register, handleSubmit } = useForm()
+import authApi from '../../api/authApi'
+import { useState } from 'react'
 
-  function onSubmit() {}
+const schema = yup
+  .object({
+    email: yup.string().required('Email is a required field').matches(
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+      'Digiti um endereço de e-mail valido'
+  ),
+    password: yup.string().required('Senha é obrigatoria').min(8,'A senha deve ter no minimo 8 caracters' ),
+  })
+  .required()
+
+export function Login() {
+  const navigate = useNavigate()
+  const { currentTheme, setCurrentTheme } = useTheme()
+  const [loading, setLoading] = useState(true)
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  })
+
+async function onSubmit(data) {
+    const email = data.email
+    const password = data.password
+
+    const res = await authApi.login({
+      email, password
+    })
+    setLoading(false)
+      localStorage.setItem('token', res.token)
+
+    navigate('/')
+  }
 
   return (
     <LoginContainer>
@@ -60,12 +95,12 @@ export function Login() {
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
                   <input
-                    name="username"
-                    id="username"
+                    id="email"
                     type="text"
-                    placeholder="Digite seu Usuario"
-                    required
+                    placeholder="Digite seu Email"
+                    {...register('email')}
                   />
+                  <span>{errors.email?.message}</span>
                 </div>
                 <div>
                   <input
@@ -73,8 +108,9 @@ export function Login() {
                     id="password"
                     type="password"
                     placeholder="Digite sua Senha"
-                    required
+                    {...register('password')}
                   />
+                  <span>{errors.password?.message}</span>
                 </div>
                 <button type="submit">Acessar o Sistema</button>
               </form>
