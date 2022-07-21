@@ -11,8 +11,8 @@ export function Router() {
   return (
     <Routes>
       <Route path="/" element={<AuthLayout />}>
-        <Route path="login" element={<Login />} />
-        <Route path="signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Route>
       <Route path="/" element={<DefaultLayout />}>
         <Route index element={<Home />} />

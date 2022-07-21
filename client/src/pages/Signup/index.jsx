@@ -15,9 +15,16 @@ import { useTheme } from '../../hooks/useTheme'
 import { Moon, Sun } from 'phosphor-react'
 import { Link, useNavigate } from 'react-router-dom'
 
+import authApi from '../../api/authApi'
+import { useState } from 'react'
+
 const schema = yup
   .object({
-    username: yup.string().required('Usuario é obrigatorio').min(8,'Usuario deve ter no minimo 8 caracters' ),
+    name: yup.string().required('Usuario é obrigatorio').min(3,'O nome deve ter no minimo 3 caracters' ),
+    email: yup.string().required('Email is a required field').matches(
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+      'Digiti um endereço de e-mail valido'
+  ),
     password: yup.string().required('Senha é obrigatoria').min(8,'A senha deve ter no minimo 8 caracters' ),
     confirmPassword: yup.string().required('Senha é obrigatoria').oneOf([yup.ref('password'), null], 'Senhas não são iguais'),
   })
@@ -25,6 +32,7 @@ const schema = yup
 
 export function Signup() {
   const navigate = useNavigate()
+  const [loading, setLoading] = useState(true)
 
   const { currentTheme, setCurrentTheme } = useTheme()
 
@@ -37,11 +45,17 @@ export function Signup() {
   })
 
  async function onSubmit(data) {
-
-    const username = data.username
+  
+    const name = data.name
+    const email = data.email
     const password = data.password
     const confirmPassword = data.confirmPassword
-    console.log(username, password, confirmPassword)
+
+    const res = await authApi.signup({
+      name, email, password, confirmPassword
+    })
+    setLoading(false)
+    localStorage.setItem('token', res.token)
     
     navigate('/login')
   }
@@ -87,12 +101,21 @@ export function Signup() {
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
                   <input
-                    id="username"
+                    id="name"
                     type="text"
-                    placeholder="Digite seu Usuario"
-                    {...register('username')}
+                    placeholder="Digite seu Nome"
+                    {...register('name')}
                   />
-                  <span>{errors.username?.message}</span>
+                  <span>{errors.name?.message}</span>
+                </div>
+                <div>
+                  <input
+                    id="email"
+                    type="text"
+                    placeholder="Digite seu Email"
+                    {...register('email')}
+                  />
+                  <span>{errors.email?.message}</span>
                 </div>
                 <div>
                   <input

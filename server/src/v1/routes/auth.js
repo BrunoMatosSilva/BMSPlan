@@ -6,8 +6,12 @@ const tokenHandler = require('../handlers/tokenHandler')
 const User = require('../models/user')
 
 router.post('/signup',
-body('username').isLength({ min: 8 }).withMessage(
-  'o usuário deve ter pelo menos 8 caracteres'
+body('name').isLength({ min: 3 }).withMessage(
+  'o nome deve ter pelo menos 3 caracteres'
+),
+body('email').matches(
+  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/).withMessage(
+  'o e-mail é obrigatorio'
 ),
 body('password').isLength({ min: 8 }).withMessage(
   'a senha deve ter pelo menos 8 caracteres'
@@ -15,10 +19,10 @@ body('password').isLength({ min: 8 }).withMessage(
 body('confirmPassword').isLength({ min: 8 }).withMessage(
   'a confirmação de senha deve ter pelo menos 8 caracteres'
 ),
- body('username').custom(value => {
-  return User.findOne({username: value}).then(user => {
+ body('email').custom(value => {
+  return User.findOne({email: value}).then(user => {
     if (user){
-      return Promise.reject('esse usuario já existe!')
+      return Promise.reject('esse email já existe!')
     }
   })
 }),
@@ -27,8 +31,8 @@ userController.register
 )
 
 router.post('/login',
-body('username').isLength({ min: 8 }).withMessage(
-  'o usuário deve ter pelo menos 8 caracteres'
+body('email').isLength({ min: 8 }).withMessage(
+  'o email está no formato invalido'
 ),
 body('password').isLength({ min: 8 }).withMessage(
   'a senha deve ter pelo menos 8 caracteres'
