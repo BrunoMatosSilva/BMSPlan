@@ -20,7 +20,7 @@ import { useState } from 'react'
 
 const schema = yup
   .object({
-    email: yup.string().required('Email is a required field').matches(
+    email: yup.string().required('Email é obrigatorio').matches(
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
       'Digiti um endereço de e-mail valido'
   ),

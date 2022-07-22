@@ -86,7 +86,12 @@ export const LoginWrapper = styled.section`
 
       > div {
         display: flex;
+        flex-direction: column;
         width: 100%;
+
+        span {
+          color: ${({ theme }) => theme.textPriorityHight};
+        }
         input {
           width: 100%;
           height: 3rem;
