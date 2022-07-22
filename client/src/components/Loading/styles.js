@@ -4,13 +4,14 @@ export const LoadingContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 100%;
+  height: 100vh;
+
 
   svg {
-    width: 1rem;
-    height: 1rem;
+    width: 5rem;
+    height: 5rem;
+    color: ${({ theme }) => theme.primary};
     animation-name: spin;
     animation-duration: 1000ms;
     animation-iteration-count: infinite;

@@ -1,4 +1,6 @@
 import { useTheme } from '../../hooks/useTheme'
+import { useSelector, useDispatch} from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import {
   HeaderContainer,
   LogoWrapper,
@@ -10,14 +12,21 @@ import ImgLogo from './../../assets/logo.png'
 import {
   Bell,
   CaretDoubleLeft,
-  CaretDown,
   MagnifyingGlass,
   Moon,
+  SignOut,
   Sun,
 } from 'phosphor-react'
 
 export function Header() {
+  const user = useSelector((state) => state.user.value)
+  const navigate = useNavigate()
   const { currentTheme, setCurrentTheme } = useTheme()
+
+  function handleSignOut(){
+    localStorage.removeItem('token')
+    navigate('/login')
+  }
 
   return (
     <HeaderContainer>
@@ -61,9 +70,9 @@ export function Header() {
             <Bell size={20} />
           </button>
         </section>
-        <span>Bruno Matos</span>
-        <button>
-          <CaretDown size={20} />
+        <span>{user.name}</span>
+        <button onClick={handleSignOut}>
+          <SignOut size={20} />
         </button>
       </PerfilWrapper>
     </HeaderContainer>

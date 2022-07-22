@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import { AuthLayout } from './layouts/AuthLayout'
 import { DefaultLayout } from './layouts/DefaultLayout'
 import { Home } from './pages/Home'
+import { Boards } from './pages/Boards'
 import { Login } from './pages/Login'
 import { Members } from './pages/Members'
 import { Messeges } from './pages/Messeges'
@@ -16,8 +17,8 @@ export function Router() {
       </Route>
       <Route path="/" element={<DefaultLayout />}>
         <Route index element={<Home />} />
-        <Route path="boards" element={<Home />} />
-        <Route path="boards/:boardId" element={<Home />} />
+        <Route path="boards" element={<Boards />} />
+        <Route path="boards/:boardId" element={<Boards />} />
         <Route path="members" element={<Members />} />
         <Route path="messeges" element={<Messeges />} />
       </Route>

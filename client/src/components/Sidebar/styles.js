@@ -66,6 +66,43 @@ export const ProjetosTitleContainer = styled.div`
   }
 `
 
+export const FavoritoWrapper = styled.div`
+  width: 100%;
+  margin-top: 1rem;
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    button {
+      display: flex;
+      text-align: left;
+      align-items: center;
+      justify-content: space-between;
+      border: none;
+      border-radius: 0.37rem;
+      padding-left: 0.5rem;
+      padding-right: 0.25rem;
+      padding-bottom: 0.25rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      color: ${({ theme }) => theme.primary};
+      background: none;
+      font-size: 1rem;
+      transition: 1s all;
+      overflow: hidden;
+
+      &:hover {
+        color: ${({ theme }) => theme.icon};
+        background: rgb(153, 102, 255, 0.2);
+      }
+      span {
+        font-size: 1rem;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+`
+
 export const ProjetosWrapper = styled.div`
   width: 100%;
   margin-top: 1rem;
@@ -91,25 +128,15 @@ export const ProjetosWrapper = styled.div`
       overflow: hidden;
 
       &:hover {
-        color: ${({ theme }) => theme.secondery};
+        color: ${({ theme }) => theme.icon};
         background: rgb(153, 102, 255, 0.2);
       }
       span {
-        font-size: 1.5rem;
+        font-size: 1rem;
         margin-right: 0.5rem;
-      }
-      .red {
-        color: ${({ theme }) => theme.textPriorityHight};
-      }
-      .green {
-        color: ${({ theme }) => theme.textPriorityMedium};
-      }
-      .orange {
-        color: ${({ theme }) => theme.textPriorityLow};
-      }
-      .purple {
-        color: ${({ theme }) => theme.icon};
       }
     }
   }
 `
+
+

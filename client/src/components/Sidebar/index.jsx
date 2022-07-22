@@ -3,6 +3,7 @@ import {
   SidebarContainer,
   ProjetosTitleContainer,
   ProjetosWrapper,
+  FavoritoWrapper,
 } from './styles'
 
 export function Sidebar() {
@@ -28,6 +29,21 @@ export function Sidebar() {
           </a>
         </li>
       </ul>
+      <ProjetosTitleContainer>
+        <header>
+          <h3>Favoritos</h3>
+        </header>
+        <FavoritoWrapper>
+          <section>
+            <button>
+              <div>
+                <span>📄</span>Mobile App
+              </div>
+              <span>...</span>
+            </button>
+          </section>
+        </FavoritoWrapper>
+      </ProjetosTitleContainer>
 
       <ProjetosTitleContainer>
         <header>
@@ -38,25 +54,25 @@ export function Sidebar() {
           <section>
             <button>
               <div>
-                <span className="red">•</span>Mobile App
+                <span>📄</span>Mobile App
               </div>
               <span>...</span>
             </button>
             <button>
               <div>
-                <span className="green">•</span>Website Redesign
+                <span>📄</span>Website Redesign
               </div>
               <span>...</span>
             </button>
             <button>
               <div>
-                <span className="orange">•</span>Design System
+                <span>📄</span>Design System
               </div>
               <span>...</span>
             </button>
             <button>
               <div>
-                <span className="purple">•</span>Wireframe
+                <span>📄</span>Wireframe
               </div>
               <span>...</span>
             </button>
