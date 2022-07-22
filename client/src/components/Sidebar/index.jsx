@@ -1,4 +1,5 @@
 import { ChatCentered, PlusCircle, SquaresFour, Users } from 'phosphor-react'
+import { Link } from 'react-router-dom'
 import {
   SidebarContainer,
   ProjetosTitleContainer,
@@ -11,22 +12,22 @@ export function Sidebar() {
     <SidebarContainer>
       <ul>
         <li>
-          <a href="#">
+          <Link to="/">
             <SquaresFour size={20} />
             Home
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#">
+          <Link to="/members">
             <Users size={20} />
             Membros
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#">
+          <Link to="/messeges">
             <ChatCentered size={20} />
             Mensagens
-          </a>
+          </Link>
         </li>
       </ul>
       <ProjetosTitleContainer>
