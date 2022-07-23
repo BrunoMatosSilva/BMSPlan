@@ -54,6 +54,7 @@ export const ProjetosTitleContainer = styled.div`
     h3 {
       font-size: 0.75rem;
       text-transform: uppercase;
+      margin-bottom: 1rem;
     }
     svg {
       cursor: pointer;
@@ -103,15 +104,17 @@ export const FavoritoWrapper = styled.div`
   }
 `
 
-export const ProjetosWrapper = styled.div`
-  width: 100%;
-  margin-top: 1rem;
-  section {
+export const ProjetosWrapper = styled.ul`
+  width: 100% !important;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 !important;
+  div {
     display: flex;
     flex-direction: column;
     a {
+      width: 100%;
       display: flex;
-      text-align: left;
       align-items: center;
       justify-content: space-between;
       border: none;
@@ -119,7 +122,9 @@ export const ProjetosWrapper = styled.div`
       padding-left: 0.5rem;
       padding-right: 0.25rem;
       padding-bottom: 0.25rem;
+      padding-top: 0.25rem;
       margin-bottom: 1rem;
+      margin-top: 0.25rem;
       color: ${({ theme }) => theme.primary};
       background: none;
       font-size: 1rem;
@@ -131,12 +136,27 @@ export const ProjetosWrapper = styled.div`
         color: ${({ theme }) => theme.icon};
         background: rgb(153, 102, 255, 0.2);
       }
-      span {
-        font-size: 1rem;
-        margin-right: 0.5rem;
+
+      div {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+
+        section {
+          display: flex;
+
+          span {
+            font-size: rem;
+            margin-right: 0.5rem;
+          }
+        }
       }
+      
     }
   }
+    
 `
 
 

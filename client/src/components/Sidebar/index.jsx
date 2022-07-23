@@ -110,7 +110,6 @@ export function Sidebar() {
           <PlusCircle size={15} onClick={addBoard} />
         </header>
         <ProjetosWrapper>
-          <section>
           <DragDropContext onDragEnd={onDragEnd}>
             <Droppable key={'list-board-droppable-key'} droppableId={'list-board-droppable'}>
               {(provided) => (
@@ -119,20 +118,27 @@ export function Sidebar() {
                     boards.map((item, index) => (
                       <Draggable key={item.id} draggableId={item.id} index={index}>
                         {(provided, snapshot) => (
-                        <Link
-                        ref={provided.innerRef}
-                        {...provided.dragHandleProps}
-                        {...provided.draggableProps}
-                        to={`/boards/${item.id}`}
-                        sx={{
-                          cursor: snapshot.isDragging ? 'grab' : 'pointer!important'
-                        }}
-                        >
-                          <div>
-                            <span>{item.icon}</span>{item.title}
-                          </div>
-                          <span>...</span>
-                        </Link>
+                        <li>
+                          <Link
+                          ref={provided.innerRef}
+                          {...provided.dragHandleProps}
+                          {...provided.draggableProps}
+                          to={`/boards/${item.id}`}
+                          sx={{
+                            cursor: snapshot.isDragging ? 'grab' : 'pointer!important'
+                          }}
+                          >
+                            <div>
+                              <section>
+                              <span>{item.icon}</span>
+                              <p>{item.title}</p>
+                              </section>
+                              <section>
+                              <span>...</span>
+                              </section>
+                            </div> 
+                          </Link>
+                        </li>
                         )}
                       </Draggable>
                     ))
@@ -142,7 +148,7 @@ export function Sidebar() {
               )}
             </Droppable>
           </DragDropContext>
-          </section>
+          
         </ProjetosWrapper>
       </ProjetosTitleContainer>
     </SidebarContainer>
