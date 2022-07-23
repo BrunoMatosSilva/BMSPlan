@@ -51,10 +51,9 @@ async function onSubmit(data) {
     })
     setLoading(false)
       localStorage.setItem('token', res.token)
-
     navigate('/')
     }catch(err){
-      alert(err)
+      toast.error((err) => `Email ou senha invalidos`)
     }
   }
 

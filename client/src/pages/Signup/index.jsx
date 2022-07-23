@@ -17,6 +17,7 @@ import { Link, useNavigate } from 'react-router-dom'
 
 import authApi from '../../api/authApi'
 import { useState } from 'react'
+import toast from 'react-hot-toast'
 
 const schema = yup
   .object({
@@ -57,10 +58,10 @@ export function Signup() {
     })
     setLoading(false)
     localStorage.setItem('token', res.token)
-    
+    toast.success('Usuário criado com sucesso!')
     navigate('/login')
     }catch(err){
-      alert(err)
+      toast.error((err) => `Falha na criação do Usuário`)
     }
   }
 

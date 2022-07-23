@@ -13,6 +13,7 @@ export const SidebarContainer = styled.aside`
     flex-direction: column;
     padding-bottom: 1rem;
     gap: 1.12rem;
+    overflow-y: auto;
 
     li {
       display: flex;
@@ -106,9 +107,11 @@ export const FavoritoWrapper = styled.div`
 
 export const ProjetosWrapper = styled.ul`
   width: 100% !important;
+  max-height: 30rem;
   display: flex;
   justify-content: space-between;
   margin: 0 !important;
+  
   div {
     display: flex;
     flex-direction: column;

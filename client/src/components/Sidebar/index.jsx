@@ -39,7 +39,7 @@ export function Sidebar() {
     setActiveIndex(activeItem)
   },[boards, boardId, navigate])
 
-  const onDragEnd = async({source, destination}) => {
+  async function onDragEnd ({source, destination}) {
     const newList = [...boards]
     const [removed] = newList.splice(source.index, 1)
     newList.splice(destination.index, 0, removed)
@@ -55,7 +55,7 @@ export function Sidebar() {
     }
   }
 
-  const addBoard = async () => {
+  async function addBoard () {
     try {
       const res = await boardApi.create()
       const newList = [res, ...boards]
