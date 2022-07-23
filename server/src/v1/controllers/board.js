@@ -1,0 +1,42 @@
+const board = require('../models/board')
+const Board = require('../models/board')
+const Section = require('../models/section')
+const Task = require('../models/task')
+
+exports.create = async (req, res) => {
+  try {
+    const boardCount = await Board.find().count()
+    const board = await Board.create({
+      user: req.user._id,
+      position: boardCount > 0 ? boardCount : 0
+    })
+    res.status(201).json(board)
+  }catch{
+    res.status(500).json(err)
+  }
+}
+
+exports.getAll = async (req, res) => {
+  try{
+    const boards = await Board.find({ user: req.user._id }).sort('-position')
+    res.status(200).json(boards)
+  }catch{
+    res.status(500).json(err)
+  }
+}
+
+exports.updatePosition = async (req, res) => {
+  const { boards } = req.body
+  try {
+    for(const key in boards.reverse()) {
+      const board = boards[key]
+      await Board.findByIdAndUpdate(
+        board.id,
+        { $set: {position: key}}
+      )
+    }
+    res.status(200).json('updated')
+  }catch(err){
+    res.status(500).json(err)
+  }
+}

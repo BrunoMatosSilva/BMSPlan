@@ -109,8 +109,7 @@ export const ProjetosWrapper = styled.div`
   section {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    button {
+    a {
       display: flex;
       text-align: left;
       align-items: center;
@@ -120,11 +119,12 @@ export const ProjetosWrapper = styled.div`
       padding-left: 0.5rem;
       padding-right: 0.25rem;
       padding-bottom: 0.25rem;
-      cursor: pointer;
+      margin-bottom: 1rem;
       color: ${({ theme }) => theme.primary};
       background: none;
       font-size: 1rem;
       transition: 1s all;
+      cursor: grab;
       overflow: hidden;
 
       &:hover {

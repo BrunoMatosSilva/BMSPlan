@@ -46,6 +46,7 @@ export function Signup() {
 
  async function onSubmit(data) {
   
+    try{
     const name = data.name
     const email = data.email
     const password = data.password
@@ -58,6 +59,9 @@ export function Signup() {
     localStorage.setItem('token', res.token)
     
     navigate('/login')
+    }catch(err){
+      alert(err)
+    }
   }
 
   return (
