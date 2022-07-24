@@ -1,8 +1,8 @@
-import { Star, Trash } from 'phosphor-react'
+import { PlusCircle, Star, Trash } from 'phosphor-react'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import toast from "react-hot-toast";
-import { BoardContainer, BoardHeader, BoardTitle, SubtitleBoard } from './styles'
+import { AddBoardWrapper, BoardContainer, BoardHeader, BoardTitle, SubtitleBoard } from './styles'
 import boardApi from '../../api/boardApi';
 
 export function Boards() {
@@ -54,6 +54,18 @@ export function Boards() {
             <textarea type='text' value={description} />
           </div>
         </SubtitleBoard>
+        <AddBoardWrapper>
+          <section>
+              <div>
+                <button>
+                  <p>Add Lista</p> <PlusCircle size={12} />
+                </button>
+              </div>
+              <div>
+                <p>0 Listas</p>
+              </div>
+          </section>
+        </AddBoardWrapper>
       </BoardHeader>
     </BoardContainer>
   )

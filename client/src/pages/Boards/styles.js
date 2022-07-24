@@ -85,3 +85,36 @@ export const SubtitleBoard = styled.div`
     }
   }
 `
+
+export const AddBoardWrapper = styled.div`
+width: 100%;
+display: flex;
+align-items: center;
+
+  > section {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+
+    > div {
+      display: flex;
+      align-items: center;
+        button {
+          display: flex;
+          align-items: center;
+          padding: 0.5rem;
+          border: none;
+          border-radius: 10px;
+          background: ${({ theme }) => theme.icon};
+          color: ${({ theme }) => theme.border};
+          gap: 0.75rem;
+          transition: 0.2s all;
+
+          &:hover {
+            background: ${({theme}) => theme.textPriorityHight};
+          }
+        }
+    }
+  }
+`
